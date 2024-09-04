@@ -1,0 +1,18 @@
+[project]
+name = "akvo-flow-s3-proxy"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi",
+  "GitPython",
+  "google-cloud-datastore",
+  "uvicorn",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ipython",
+  "mypy",
+  "pip-tools",
+  "ruff",
+]

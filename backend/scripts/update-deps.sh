@@ -1,21 +1,21 @@
 #!/bin/sh
-set -e
 
-echo "Generating requirements.txt"
+set -e
+set -x
+
 pip-compile --quiet \
 	--upgrade \
 	--generate-hashes \
-	--output-file=requirements.txt \
 	--strip-extras \
+	--output-file=requirements.txt \
 	pyproject.toml
 
-echo "Generating requirements-dev.txt"
 pip-compile --quiet \
 	--upgrade \
-	--allow-unsafe \
-	--constraint=requirements.txt \
-	--extra=dev \
 	--generate-hashes \
-	--output-file=requirements-dev.txt \
 	--strip-extras \
+	--allow-unsafe \
+	--extra=dev \
+	--constraint=requirements.txt \
+	--output-file=requirements-dev.txt \
 	pyproject.toml

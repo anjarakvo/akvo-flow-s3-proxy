@@ -1,0 +1,44 @@
+[project]
+name = "akvo-flow-s3-proxy"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi",
+  "GitPython",
+  "google-cloud-datastore",
+  "uvicorn",
+]
+
+[project.optional-dependencies]
+dev = [
+  "coverage",
+  "ipython",
+  "mypy",
+  "pip-tools",
+  "pytest",
+  "ruff",
+]
+
+[tool.mypy]
+strict = true
+
+[tool.ruff.lint]
+select = [
+  "E",  # pycodestyle errors
+  "W",  # pycodestyle warnings
+  "F",  # pyflakes
+  "I",  # isort
+  "B",  # flake8-bugbear
+  "C4",  # flake8-comprehensions
+  "UP",  # pyupgrade
+  "ARG001",  # unused arguments in functions
+]
+
+[tool.coverage.run]
+source = ['app', 'tests']
+branch = true
+parallel = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100

@@ -8,3 +8,9 @@ services:
       - 5000:5000
     volumes:
       - ./backend:/app
+      - ~/.ssh:/tmp/.ssh:ro
+      - flow-config:/akvo-flow-server-config
+    command: python -m uvicorn app.main:app --host 0.0.0.0 --port 5000 --reload
+
+volumes:
+  flow-config:

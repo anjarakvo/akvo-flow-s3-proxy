@@ -16,6 +16,7 @@ dev = [
   "mypy",
   "pip-tools",
   "pytest",
+  "pytest-datadir",
   "ruff",
 ]
 
@@ -32,6 +33,11 @@ select = [
   "C4",  # flake8-comprehensions
   "UP",  # pyupgrade
   "ARG001",  # unused arguments in functions
+]
+
+[tool.pytest.ini_options]
+markers = [
+  "internal: testing implementation details to satisfy tests coverage"
 ]
 
 [tool.coverage.run]

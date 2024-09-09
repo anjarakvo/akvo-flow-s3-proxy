@@ -3,6 +3,6 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get("/")
-async def root() -> dict[str, str]:
-    return {"message": "Hello World!"}
+@app.get("/healtz", include_in_schema=False)
+async def healt_check() -> dict[str, str]:
+    return {"message": "OK!"}
